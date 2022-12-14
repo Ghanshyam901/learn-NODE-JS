@@ -1,0 +1,22 @@
+{
+  "name": "learnnodejs",
+  "version": "1.0.0",
+  "description": "node js learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghanshyam901/learn-NODE-JS.git"
+  },
+  "author": "ghanshyam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghanshyam901/learn-NODE-JS/issues"
+  },
+  "homepage": "https://github.com/Ghanshyam901/learn-NODE-JS#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
