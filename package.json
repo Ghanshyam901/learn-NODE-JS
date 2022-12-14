@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ghanshyam901/learn-NODE-JS#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.20"
   }
 }
