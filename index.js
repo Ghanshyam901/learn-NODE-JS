@@ -1,6 +1,6 @@
 const app = require('./app')
-console.log(app);
-console.log(app.z()) 
+// console.log(app);
+// console.log(app.z()) 
 
 
 ////////////////////////////////////////////////////////
@@ -24,3 +24,21 @@ console.log(app.z())
 // var x = '20'
 // const arr =[2,3,4,5,6,7,8,9];
 // console.log(arr[0]);
+
+// ----------------------------------- filter
+/// filter is find the specific value it always operate on arrays..
+const arr =[2,3,4,5,6,4,8,9];
+
+// arr.filter((item)=>{
+//     console.log(item);
+// })
+
+ let res = arr.filter((item)=>{
+    return item > 4
+})
+console.log(res)
+
+let ans = arr.filter((item)=>{
+    return item == 4
+})
+console.log(ans);
