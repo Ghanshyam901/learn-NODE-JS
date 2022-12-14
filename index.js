@@ -1,7 +1,17 @@
-// const fs = require('fs');
+const http = require('http');
 
-// // fs.writeFileSync("hello.txt"," hello node");
-// // fs.writeFileSync("nd.js"," hello node");
+// function test (b){
+//     return b*10;
+// }
+// console.log(test(2)); //20
 
-// console.log(__dirname); // for directry find
-// console.log(__filename); // fro dinf file name 
+// const arr =(a)=>{    // arrow function
+//     return a +20;
+// }
+// console.log(arr(8)); // 28 
+
+http.createServer((req, res)=>{
+    res.write(" <h1>heelo this is responseed..</h1>");
+    res.end();
+}).listen(4000);
+
