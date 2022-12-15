@@ -1,30 +1,17 @@
-const fs = require('fs') /// file system module;
-const path = require('path');
-const dirpath = path.join(__dirname,'crud');
-const filePath = `${dirpath}/orange.txt`;
+// async
 
-// fs.writeFileSync(filePath,"this is simple crud file ") // crate file
+//  console.log("start exc -> ");
 
-// fs.readFile(filePath,(err , item)=>{     //read
-//     console.log(item);
-// });
+let a = 10;
+let b = 0;
 
-// fs.readFile(filePath,'utf8',(err , item)=>{   // read
-//     console.log(item);
-// });
+let waitdata = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(40);
+  }, 2000);
+});
 
-// fs.appendFile(filePath," hello i am simple file",(err)=>{   // update
-//     if(!err){
-//         console.log("upated successfullt");
-//     }
-// })
-
-// fs.rename(filePath,`${dirpath}/apple.txt`,(err)=>{
-//         if(!err){
-//             console.log("file name is updated");
-//         }
-// })
-
-// fs.unlinkSync(`${dirpath}/apple.txt`);  /// delete file
-
-
+waitdata.then((data) => {
+  b = data;
+  console.log(a + b);
+});
