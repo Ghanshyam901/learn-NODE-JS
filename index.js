@@ -1,40 +1,29 @@
-// https://www.youtube.com/watch?v=VrQgmNY96wo&t=6122s
 
-const express = require("express");
-const path = require ('path');
+const express = require('express');
+const app = express();
 
-const app = express(); // executeable
-const publicPath = path.join(__dirname,'public');
+const reqFilter=(req,res,next)=>{
+    if(!req.query.age){
+        res.send("please provide age");
+    }else if(req.query.age < 18){
+        res.send("please provide legal age");
+    }
+    else{
+        next();
+    }
+    
+}
 
-app.set('view engine','ejs'); 
+app.use(reqFilter);
+
 
 app.get('/',(req,res)=>{
-    res.sendFile(`${publicPath}/home.html`)
-})
-
-app.get('/profile',(req,res)=>{
-    const user ={
-        name:'sk',
-        email:'sk@gmail.com',
-        contact:923444433,
-        skills:['java','react',"node js","html","css",'javascript']
-    }
-    res.render('profile',{user})
-})
-
-app.get('/loginp',(req,res)=>{
-    res.render('login');
-})
-
-app.get('/about',(req,res)=>{
-    res.sendFile(`${publicPath}/about.html`)
+    res.send("hello welcome to home page");
 })
 
 
-
-app.get('*',(req,res)=>{   // 404 page 
-    res.sendFile(`${publicPath}/pnf.html`)
+app.get('/users',(req,res)=>{
+    res.send("hello welcome to users page");
 })
 
-
-app.listen(5000);
+app.listen(4000);
