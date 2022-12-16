@@ -6,7 +6,7 @@ const path = require ('path');
 const app = express(); // executeable
 const publicPath = path.join(__dirname,'public');
 
-app.set('view engine','ejs');
+app.set('view engine','ejs'); 
 
 app.get('/',(req,res)=>{
     res.sendFile(`${publicPath}/home.html`)
@@ -16,9 +16,14 @@ app.get('/profile',(req,res)=>{
     const user ={
         name:'sk',
         email:'sk@gmail.com',
-        contact:923444433
+        contact:923444433,
+        skills:['java','react',"node js","html","css",'javascript']
     }
     res.render('profile',{user})
+})
+
+app.get('/loginp',(req,res)=>{
+    res.render('login');
 })
 
 app.get('/about',(req,res)=>{
