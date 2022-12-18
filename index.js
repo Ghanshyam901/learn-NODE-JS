@@ -1,29 +1,15 @@
+// https://www.youtube.com/watch?v=VrQgmNY96wo&t=6122s
 
-const express = require('express');
-const app = express();
+const { MongoClient } = require("mongodb");
+const url = "mongodb://localhost:27017";
+const dataBase ='e-comm';
+const client = new MongoClient(url);
 
-const reqFilter=(req,res,next)=>{
-    if(!req.query.age){
-        res.send("please provide age");
-    }else if(req.query.age < 18){
-        res.send("please provide legal age");
-    }
-    else{
-        next();
-    }
-    
+async function getData(){
+    let result = await client.connect();
+   let db = result.db(dataBase)
+   let collection = db.collection('product')
+   let response = await collection.find({}).toArray()
+   console.log(response);
 }
-
-app.use(reqFilter);
-
-
-app.get('/',(req,res)=>{
-    res.send("hello welcome to home page");
-})
-
-
-app.get('/users',(req,res)=>{
-    res.send("hello welcome to users page");
-})
-
-app.listen(4000);
+getData();
