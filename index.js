@@ -1,15 +1,20 @@
 // https://www.youtube.com/watch?v=VrQgmNY96wo&t=6122s
 
-const { MongoClient } = require("mongodb");
-const url = "mongodb://localhost:27017";
-const dataBase ='e-comm';
-const client = new MongoClient(url);
+const dbConnect = require('./mongodb.js');
 
-async function getData(){
-    let result = await client.connect();
-   let db = result.db(dataBase)
-   let collection = db.collection('product')
-   let response = await collection.find({}).toArray()
-   console.log(response);
-}
-getData();
+// read...
+dbConnect().then((response)=>{
+    response.find({name:'echo'}).toArray().then((data)=>{
+        console.log(data);
+    })
+})
+console.warn(dbConnect());
+ 
+////////////2 nd way
+
+//  const main= async()=>{
+//     let data = await dbConnect();
+//     data = await data.find().toArray();
+//     console.warn(data);
+// }
+// main()
